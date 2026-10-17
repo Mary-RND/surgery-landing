@@ -9,6 +9,12 @@ const focus = [
   "Мужская контурная пластика",
 ];
 
+/**
+ * Сайт публикуется в подпапке своего репозитория, поэтому путь к фото
+ * собирается с префиксом NEXT_PUBLIC_BASE_PATH (next/image не добавляет его сам).
+ */
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export function AboutSurgeon() {
   return (
     <section className="relative bg-white">
@@ -24,7 +30,7 @@ export function AboutSurgeon() {
           <Reveal>
             <div className="relative overflow-hidden rounded-[24px] bg-sand">
               <Image
-                src="https://images.pexels.com/photos/6303569/pexels-photo-6303569.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src={`${BASE}/images/surgeon.jpg`}
                 alt="Пластический хирург"
                 width={640}
                 height={800}
@@ -38,7 +44,7 @@ export function AboutSurgeon() {
               </div>
             </div>
             <p className="mt-3 text-center text-xs text-ink/40">
-              Фото — плейсхолдер (лицензионный сток, будет заменено на реальное)
+              Фото — демонстрационное (сгенерировано для шаблона, будет заменено на реальное)
             </p>
           </Reveal>
           <Reveal delay={0.1} className="max-w-xl lg:pl-6">
