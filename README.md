@@ -1,6 +1,6 @@
 # Пластический хирург — интерактивный 3D-лендинг
 
-**Live:** [mary-rnd.github.io/vebinar-ii-analitik-landing](https://mary-rnd.github.io/vebinar-ii-analitik-landing/)
+**Live:** [mary-rnd.github.io/surgery-landing](https://mary-rnd.github.io/surgery-landing/)
 
 Промо-лендинг практики пластической хирургии: тёмный кинематографичный дизайн, интерактивная 3D-скульптура в герое и постраничный сторителлинг от «роли хирурга» до записи на первую консультацию.
 
@@ -51,7 +51,7 @@
 ## Локальный запуск
 
 ```bash
-cd "Surgery landing/site"
+cd site
 npm install --legacy-peer-deps
 npm run dev        # http://localhost:3000
 ```
@@ -60,17 +60,29 @@ npm run dev        # http://localhost:3000
 npm run build      # статический экспорт в out/ (+ postbuild-фикс RSC-алиасов)
 ```
 
+### Сборка с префиксом пути
+
+Сайт публикуется в подпапке своего репозитория, поэтому локальная сборка повторяет это:
+
+```bash
+# Linux / macOS / GitHub Actions
+NEXT_PUBLIC_BASE_PATH=/surgery-landing npm run build
+
+# Windows PowerShell
+$env:NEXT_PUBLIC_BASE_PATH='/surgery-landing'; npm run build
+```
+
 ## Деплой
 
-Пуш в ветку `main` с изменениями в `Surgery landing/site/**` запускает GitHub Actions
-(`.github/workflows/deploy-surgery-pages.yml`): сборка с `NEXT_PUBLIC_BASE_PATH` → публикация
-`out/` через `actions/deploy-pages`. Сайт живёт по адресу
-`https://mary-rnd.github.io/vebinar-ii-analitik-landing/`.
+Пуш в ветку `main` с изменениями в `site/**` запускает GitHub Actions
+(`.github/workflows/deploy-pages.yml`): сборка с `NEXT_PUBLIC_BASE_PATH=/surgery-landing`,
+затем публикация `site/out` через `actions/deploy-pages`. Сайт живёт по адресу
+`https://mary-rnd.github.io/surgery-landing/`.
 
 ## Структура
 
 ```
-Surgery landing/
+.
 ├── README.md               ← этот файл
 ├── screenshots/            ← скриншоты для портфолио
 └── site/
