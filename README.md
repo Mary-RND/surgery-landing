@@ -1,3 +1,5 @@
+> [← Портфолио Марины Петрушиной](https://mary-rnd.github.io/portfolio/) — сайты, ИИ-боты, трекеры и автоматизация для малого бизнеса и MedTech.
+
 # Пластический хирург — интерактивный 3D-лендинг
 
 **Live:** [mary-rnd.github.io/surgery-landing](https://mary-rnd.github.io/surgery-landing/)
